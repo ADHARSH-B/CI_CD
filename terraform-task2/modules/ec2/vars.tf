@@ -1,13 +1,3 @@
-# variable "region" {
-#   default = "ap-south-1"
-# }
-
-# variable "ami_id" {
-#   type = map
-#   default = "ami-0d70546e43a941d70"
-# }
-
-
 variable "availability_zones" {
   description = "availablity_zones of the subnets"
   default     = ["us-west-2a", "us-west-2b"]
@@ -42,22 +32,6 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-# variable "pub_subnet_aza_cidr" {
-#   description = "CIDR for "
-#   default = "10.0.10.0/24"
-# }
-
-# variable "pub_subnet_azc_cidr" {
-#   default = "10.0.20.0/24"
-# }
-
-# variable "pri_subnet_aza_cidr" {
-#   default = "10.0.30.0/24"
-# }
-
-# variable "pri_subnet_azc_cidr" {
-#   default = "10.0.40.0/24"
-# }
 
 variable "vpc__id" {
   description = "vpc id of the ec2 to be launched"
@@ -86,6 +60,3 @@ variable "ec2_ami" {
 
 }
 
-# variable "password" {
-#   type = string
-# }

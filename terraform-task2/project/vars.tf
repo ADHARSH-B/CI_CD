@@ -8,8 +8,8 @@ variable "SECRET_KEY" {
 }
 
 variable "RDS_USER" {
-  
+  description = "username of the rds"
 }
 variable "RDS_PASSWORD" {
-  
+  password="password of the rds"
 }

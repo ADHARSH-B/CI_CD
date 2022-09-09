@@ -18,34 +18,16 @@ resource "aws_instance" "newec2_v1" {
     source      = "${path.module}/mysql-connection.php"
     destination = "/home/ubuntu/mysql-connection.php"
 
-    # connection {
-    #   type        = "ssh"
-    #   user        = "ubuntu"
-    #   private_key = file("${path.module}/terrv1.pem")
-    #   host        = self.public_ip
-    # }
+   
   }
   provisioner "file" {
     source      = "${path.module}/username.txt"
     destination = "/home/ubuntu/username.txt"
 
-    # connection {
-    #   type        = "ssh"
-    #   user        = "ubuntu"
-    #   private_key = file("${path.module}/terrv1.pem")
-    #   host        = self.public_ip
-    # }
   }
     provisioner "file" {
     source      = "${path.module}/password.txt"
     destination = "/home/ubuntu/password.txt"
-
-    # connection {
-    #   type        = "ssh"
-    #   user        = "ubuntu"
-    #   private_key = file("${path.module}/terrv1.pem")
-    #   host        = self.public_ip
-    # }
   }
 
   tags = {

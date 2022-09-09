@@ -38,9 +38,3 @@ resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.dev_private_crt.id
 }
 
-# resource "aws_main_route_table_association" "vpc-route" {
-#   vpc_id="${aws_vpc.dev-vpc.id}"
-#   route_table_id = aws_route_table.dev-public-crt.id
-# }
-
-

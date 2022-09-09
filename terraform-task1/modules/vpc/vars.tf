@@ -42,24 +42,3 @@ variable "vpc_cidr" {
   description = "cidrs for vpc's"
   default = "10.0.0.0/16"
 }
-
-# variable "pub_subnet_aza_cidr" {
-
-#   default = "10.0.10.0/24"
-# }
-
-# variable "pub_subnet_azc_cidr" {
-#   default = "10.0.20.0/24"
-# }
-
-# variable "pri_subnet_aza_cidr" {
-#   default = "10.0.30.0/24"
-# }
-
-# variable "pri_subnet_azc_cidr" {
-#   default = "10.0.40.0/24"
-# }
-
-# variable "password" {
-#   type = string
-# }
