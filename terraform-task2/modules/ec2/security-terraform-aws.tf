@@ -1,0 +1,27 @@
+locals {
+  ports = ["22", "80"]
+}
+resource "aws_security_group" "sg-terraform" {
+  vpc_id = var.vpc__id
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  dynamic "ingress" {
+    for_each = local.ports
+    iterator = ports
+    content {
+      from_port   = ports.value
+      to_port     = ports.value
+      protocol    = "tcp"
+      cidr_blocks = [var.my_ip]
+    }
+  }
+
+  tags = {
+    Name = "sg-terraform"
+  }
+}
