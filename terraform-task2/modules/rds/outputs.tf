@@ -1,3 +1,3 @@
 output "rds_endpoint" {
-  value = aws_db_instance.rds.id
+  value = aws_db_instance.rds.address
 }

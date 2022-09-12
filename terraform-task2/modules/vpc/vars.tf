@@ -40,5 +40,6 @@ variable "vpc_cidr" {
 
 variable "my_ip" {
   description = "Ip address of machine"
-  default     = "120.138.12.231/32"
+  # default     = "120.138.12.231/32"
+  default = "103.28.246.253"
 }

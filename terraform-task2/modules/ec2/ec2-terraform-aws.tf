@@ -1,4 +1,4 @@
-resource "aws_instance" "newec2-v1" {
+resource "aws_instance" "ec2_machine" {
   ami                    = var.ec2_ami
   instance_type          = var.ec2_type
   count                  = var.ec2_count
@@ -36,9 +36,8 @@ resource "aws_instance" "newec2-v1" {
     }
   }
   provisioner "file" {
-    source      = "${path.module}/password.txt"
-    destination = "/home/ubuntu/password.txt"
-
+    content     = templatefile("${path.module}/rds.txt.tpl", { db_host = var.rds_endpoint })
+    destination = "/home/ubuntu/rds_endpoint.txt"
     connection {
       type        = "ssh"
       user        = "ubuntu"
@@ -47,7 +46,19 @@ resource "aws_instance" "newec2-v1" {
     }
   }
 
+  provisioner "file" {
+    source      = "${path.module}/password.txt"
+    destination = "/home/ubuntu/password.txt"
+
+    # connection {
+    #   type        = "ssh"
+    #   user        = "ubuntu"
+    #   private_key = file("${path.module}/terrv1.pem")
+    #   host        = self.public_ip
+    # }
+  }
+
   tags = {
-    Name = "terraform-instances-1"
+    Name = "terraform-instances-${count.index}"
   }
 }

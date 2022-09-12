@@ -4,8 +4,8 @@ resource "aws_db_instance" "rds" {
   engine_version         = "5.7"
   instance_class         = "db.t3.micro"
   db_name                = "mydb"
-  username               = "user"
-  password               = "password"
+  username               = var.rds_user
+  password               = var.rds_password
   parameter_group_name   = "default.mysql5.7"
   skip_final_snapshot    = true
   db_subnet_group_name   = aws_db_subnet_group.db_subnet.name
@@ -16,7 +16,7 @@ resource "aws_db_instance" "rds" {
 }
 
 resource "aws_db_subnet_group" "db_subnet" {
-  name       = "db-r"
+  name       = "db_r"
   subnet_ids = var.subnet_ids
 
   tags = {

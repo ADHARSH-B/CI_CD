@@ -7,10 +7,13 @@ variable "availability_zones" {
 variable "subnet_ids" {
   description = "subnet_id's for the launch of ec2"
 }
+# variable "rds_database_address" {
 
+# }
 variable "my_ip" {
   description = "Ipaddress of the machine"
-  default     = "120.138.12.231/32"
+  # default     = "120.138.12.231/32"
+  default = "103.28.246.253/32"
 }
 variable "instance_type" {
   description = "instance_type for different workspaces"
